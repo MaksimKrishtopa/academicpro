@@ -1,18 +1,12 @@
 (function () {
   var config = window.SITE_CONFIG;
-  var brandUrl = config.brandUrl;
-
-  var gtagScript = document.createElement("script");
-  gtagScript.async = true;
-  gtagScript.src = "https://www.googletagmanager.com/gtag/js?id=" + config.gaId;
-  document.head.appendChild(gtagScript);
 
   function trackCta(label) {
     window.dataLayer = window.dataLayer || [];
     window.dataLayer.push({
       event: "cta_click",
       cta_label: label,
-      cta_url: brandUrl
+      cta_url: config.brandUrl
     });
 
     if (typeof gtag === "function") {
